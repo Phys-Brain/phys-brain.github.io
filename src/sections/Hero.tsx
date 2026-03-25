@@ -237,7 +237,9 @@ export default function Hero() {
             {/* Quick Links */}
             <div className="flex flex-wrap items-center justify-center gap-6 mt-10 text-sm lg:justify-start">
               <a
-                href="#"
+                href="https://huggingface.co/Phys-Brain"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 text-gray-600 transition-colors hover:text-indigo-600"
               >
                 <span className="flex items-center justify-center w-8 h-8 bg-gray-100 rounded-lg">

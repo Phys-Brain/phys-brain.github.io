@@ -14,9 +14,9 @@ import {
 gsap.registerPlugin(ScrollTrigger);
 
 const resourceLinks = [
-  { name: '模型下载', href: '#', icon: Brain },
+  { name: '模型下载', href: 'https://huggingface.co/Phys-Brain', icon: Brain },
   { name: '数据集', href: '#', icon: Database },
-  { name: 'GitHub', href: '#', icon: Github },
+  { name: 'GitHub', href: 'https://github.com/ZGC-EmbodyAI', icon: Github },
   { name: '论文 PDF', href: '#', icon: FileText },
 ];
 
@@ -93,7 +93,9 @@ export default function Footer() {
             {/* Quick Action Buttons */}
             <div className="flex flex-wrap gap-3">
               <a
-                href="#"
+                href="https://huggingface.co/Phys-Brain"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-lg text-sm font-medium transition-colors"
               >
                 <Brain className="w-4 h-4" />
@@ -162,7 +164,9 @@ export default function Footer() {
               </h4>
               <div className="flex gap-3">
                 <a
-                  href="#"
+                  href="https://github.com/ZGC-EmbodyAI"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-colors"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

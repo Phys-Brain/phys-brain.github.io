@@ -185,7 +185,7 @@ export default function Overview() {
                   <div className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 cursor-pointer hover:bg-white/20 transition-colors group">
                     <div className="w-0 h-0 border-t-8 border-t-transparent border-l-12 border-l-white border-b-8 border-b-transparent ml-1 group-hover:scale-110 transition-transform" />
                   </div>
-                  <p className="text-white/80 text-sm">观看 PhysBrain 演示视频</p>
+                  <p className="text-white/80 text-sm">观看 PhysBrain 1.0 演示视频</p>
                 </div>
               </div>
 

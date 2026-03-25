@@ -9,7 +9,7 @@ const architectureModules = [
   {
     id: 'physbrain',
     icon: Brain,
-    title: 'PhysBrain',
+    title: 'PhysBrain 1.0',
     subtitle: '基座模型',
     description: '构建全球首个物理智能数据引擎，将海量人类视频转化为多模态大模型训练数据，激发出模型的"类人"物理智能。',
     features: [
@@ -37,6 +37,8 @@ const architectureModules = [
     color: 'from-purple-500 to-pink-600',
     bgColor: 'bg-purple-50',
     borderColor: 'border-purple-200',
+    image: '/TwinBrainVLA-arch.svg',
+    blend: true,
   },
   {
     id: 'langforce',
@@ -50,6 +52,7 @@ const architectureModules = [
       '物理常识习得',
       '大幅提升学习效率',
     ],
+    image: '/LangForce-arch.png',
     color: 'from-amber-500 to-orange-600',
     bgColor: 'bg-amber-50',
     borderColor: 'border-amber-200',
@@ -149,31 +152,31 @@ export default function Architecture() {
     <section
       id="architecture"
       ref={sectionRef}
-      className="relative py-24 bg-white overflow-hidden"
+      className="relative py-24 overflow-hidden bg-white"
     >
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-b from-indigo-50/30 via-purple-50/30 to-transparent rounded-full blur-3xl" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         {/* Section Title */}
-        <div ref={titleRef} className="text-center mb-16">
-          <span className="inline-block px-4 py-2 bg-amber-50 text-amber-700 text-sm font-medium rounded-full mb-4">
+        <div ref={titleRef} className="mb-16 text-center">
+          <span className="inline-block px-4 py-2 mb-4 text-sm font-medium rounded-full bg-amber-50 text-amber-700">
             模型架构
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="mb-6 text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl">
             三大核心技术<span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600">深度融合</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            以 PhysBrain 为基座、TwinBrainVLA 为架构、LangForce 为策略，
+          <p className="max-w-3xl mx-auto text-lg text-gray-600">
+            以 PhysBrain 1.0 为基座、TwinBrainVLA 为架构、LangForce 为策略，
             助力具身通用智能的持续提升
           </p>
         </div>
 
         {/* Architecture Diagram */}
         <div ref={diagramRef} className="mb-20">
-          <div className="relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-8 lg:p-12 border border-gray-200">
+          <div className="relative p-8 border border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl lg:p-12">
             {/* SVG Connections */}
             <svg
               className="absolute inset-0 w-full h-full pointer-events-none"
@@ -216,7 +219,7 @@ export default function Architecture() {
             </svg>
 
             {/* Architecture Flow */}
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="relative z-10 grid grid-cols-1 gap-8 lg:grid-cols-3">
               {architectureModules.map((module, index) => (
                 <div
                   key={module.id}
@@ -230,7 +233,7 @@ export default function Architecture() {
                       <div
                         className={`w-14 h-14 bg-gradient-to-br ${module.color} rounded-xl flex items-center justify-center shadow-lg`}
                       >
-                        <module.icon className="w-7 h-7 text-white" />
+                        <module.icon className="text-white w-7 h-7" />
                       </div>
                       <div>
                         <h3 className="text-xl font-bold text-gray-900">
@@ -243,14 +246,14 @@ export default function Architecture() {
                     </div>
 
                     {/* Description */}
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                    <p className="mb-4 text-sm leading-relaxed text-gray-600">
                       {module.description}
                     </p>
 
                     {/* Arrow for flow */}
                     {index < 2 && (
-                      <div className="hidden lg:flex absolute -right-4 top-1/2 -translate-y-1/2 z-20">
-                        <div className="w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center">
+                      <div className="absolute z-20 hidden -translate-y-1/2 lg:flex -right-4 top-1/2">
+                        <div className="flex items-center justify-center w-8 h-8 bg-white rounded-full shadow-md">
                           <ArrowRight className="w-4 h-4 text-indigo-500" />
                         </div>
                       </div>
@@ -262,7 +265,7 @@ export default function Architecture() {
 
             {/* Output Label */}
             <div className="mt-8 text-center">
-              <div className="inline-flex items-center gap-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-full shadow-lg">
+              <div className="inline-flex items-center gap-3 px-8 py-4 text-white rounded-full shadow-lg bg-gradient-to-r from-indigo-600 to-purple-600">
                 <span className="font-semibold">具身通用智能</span>
                 <span className="w-px h-4 bg-white/30" />
                 <span className="text-sm opacity-90">Embodied General Intelligence</span>
@@ -298,7 +301,7 @@ export default function Architecture() {
                   </div>
                 </div>
 
-                <p className="text-gray-600 leading-relaxed mb-6">
+                <p className="mb-6 leading-relaxed text-gray-600">
                   {module.description}
                 </p>
 
@@ -327,33 +330,44 @@ export default function Architecture() {
                 <div
                   className={`relative aspect-video ${module.bgColor} rounded-2xl border ${module.borderColor} overflow-hidden`}
                 >
-                  {/* Abstract Pattern */}
-                  <div className="absolute inset-0 opacity-20">
-                    <div
-                      className="w-full h-full"
-                      style={{
-                        backgroundImage: `
-                          linear-gradient(to right, currentColor 1px, transparent 1px),
-                          linear-gradient(to bottom, currentColor 1px, transparent 1px)
-                        `,
-                        backgroundSize: '30px 30px',
-                      }}
+                  {'image' in module && module.image ? (
+                    <img
+                      src={module.image as string}
+                      alt={`${module.title} 架构图`}
+                      className="object-contain w-full h-full"
+                      style={'blend' in module && module.blend ? { mixBlendMode: 'multiply' } : undefined}
                     />
-                  </div>
+                  ) : (
+                    <>
+                      {/* Abstract Pattern */}
+                      <div className="absolute inset-0 opacity-20">
+                        <div
+                          className="w-full h-full"
+                          style={{
+                            backgroundImage: `
+                              linear-gradient(to right, currentColor 1px, transparent 1px),
+                              linear-gradient(to bottom, currentColor 1px, transparent 1px)
+                            `,
+                            backgroundSize: '30px 30px',
+                          }}
+                        />
+                      </div>
 
-                  {/* Center Icon */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div
-                      className={`w-24 h-24 bg-gradient-to-br ${module.color} rounded-2xl flex items-center justify-center shadow-xl`}
-                    >
-                      <module.icon className="w-12 h-12 text-white" />
-                    </div>
-                  </div>
+                      {/* Center Icon */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div
+                          className={`w-24 h-24 bg-gradient-to-br ${module.color} rounded-2xl flex items-center justify-center shadow-xl`}
+                        >
+                          <module.icon className="w-12 h-12 text-white" />
+                        </div>
+                      </div>
 
-                  {/* Floating Elements */}
-                  <div className="absolute top-4 left-4 w-8 h-8 bg-white/50 rounded-lg" />
-                  <div className="absolute bottom-4 right-4 w-6 h-6 bg-white/50 rounded-full" />
-                  <div className="absolute top-1/2 right-8 w-4 h-4 bg-white/50 rotate-45" />
+                      {/* Floating Elements */}
+                      <div className="absolute w-8 h-8 rounded-lg top-4 left-4 bg-white/50" />
+                      <div className="absolute w-6 h-6 rounded-full bottom-4 right-4 bg-white/50" />
+                      <div className="absolute w-4 h-4 rotate-45 top-1/2 right-8 bg-white/50" />
+                    </>
+                  )}
                 </div>
               </div>
             </div>

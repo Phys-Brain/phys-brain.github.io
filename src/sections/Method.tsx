@@ -28,7 +28,7 @@ const methodCards = [
     icon: GitMerge,
     title: 'VLA 集成',
     description:
-      '基于领先的 PhysBrain 基座模型，攻坚机器人控制核心技术，研发 Vision-Language-Action（VLA）机器人控制模型。',
+      '基于领先的 PhysBrain 1.0 基座模型，攻坚机器人控制核心技术，研发 Vision-Language-Action（VLA）机器人控制模型。',
     image: '/card-spatial.jpg',
     color: 'from-rose-500 to-red-600',
     size: 'large',

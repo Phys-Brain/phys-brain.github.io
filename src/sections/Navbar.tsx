@@ -108,7 +108,7 @@ export default function Navbar() {
           {/* CTA Buttons */}
           <div className="items-center hidden gap-3 md:flex">
             <a
-              href="https://github.com"
+              href="https://github.com/ZGC-EmbodyAI"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 transition-colors duration-300 hover:text-indigo-600"
@@ -164,7 +164,7 @@ export default function Navbar() {
           ))}
           <div className="pt-2 border-t border-gray-100">
             <a
-              href="https://github.com"
+              href="https://github.com/ZGC-EmbodyAI"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 px-4 py-3 text-gray-700 transition-all duration-300 rounded-xl hover:bg-indigo-50 hover:text-indigo-600"

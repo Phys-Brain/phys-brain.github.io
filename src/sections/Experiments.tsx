@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Trophy, TrendingUp, BarChart3, ChevronDown, ChevronUp } from 'lucide-react';
+import { Trophy, BarChart3, ChevronDown, ChevronUp } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -78,62 +78,56 @@ const qaResults = [
 // VLA Results Data
 const vlaResults = [
   {
-    model: 'PhysBrain-VLA',
-    params: '7B',
-    calvin: 92.5,
-    libero: 88.3,
-    rlds: 85.7,
-    bridge: 91.2,
+    model: 'PhysBrain 1.0',
+    widowx: 80.2,
+    google: 91.3,
+    libero: 98.8,
+    robocasa: 64.50,
     avg: 89.4,
     isBest: true,
   },
   {
-    model: 'OpenVLA-7B',
-    params: '7B',
-    calvin: 78.2,
-    libero: 72.5,
-    rlds: 68.9,
-    bridge: 75.3,
+    model: 'Xiaomi-Robotics-0',
+    widowx: 79.2,
+    google: 89.0,
+    libero: 98.7,
+    robocasa: "---",
     avg: 73.7,
     isBest: false,
   },
   {
-    model: 'RT-2-PaLI-X',
-    params: '55B',
-    calvin: 82.4,
-    libero: 76.8,
-    rlds: 74.2,
-    bridge: 79.5,
+    model: 'ABot-0',
+    widowx: "---",
+    google: "---",
+    libero: 98.6,
+    robocasa: 58.30,
     avg: 78.2,
     isBest: false,
   },
   {
-    model: 'RT-1',
-    params: '35M',
-    calvin: 65.3,
-    libero: 58.2,
-    rlds: 52.1,
-    bridge: 61.7,
+    model: 'GR00T-N1.6',
+    widowx: 57.1,
+    google: 76.13,
+    libero: 96.99,
+    robocasa: 47.60,
     avg: 59.3,
     isBest: false,
   },
   {
-    model: 'Octo',
-    params: '93M',
-    calvin: 71.5,
-    libero: 65.4,
-    rlds: 61.8,
-    bridge: 68.2,
+    model: 'π0.5',
+    widowx: 57.1,
+    google: "---",
+    libero: 96.9,
+    robocasa: 41.4,
     avg: 66.7,
     isBest: false,
   },
   {
-    model: 'Diffusion Policy',
-    params: '-',
-    calvin: 68.7,
-    libero: 62.1,
-    rlds: 58.5,
-    bridge: 64.9,
+    model: 'π0',
+    widowx: 27.1,
+    google: 54.8,
+    libero: 94.2,
+    robocasa: "---",
     avg: 63.6,
     isBest: false,
   },
@@ -141,8 +135,8 @@ const vlaResults = [
 
 interface TableRow {
   model: string;
-  params: string;
-  [key: string]: string | number | boolean;
+  params?: string;
+  [key: string]: string | number | boolean | undefined;
 }
 
 interface ResultTableProps {
@@ -249,7 +243,9 @@ function ResultTable({ title, subtitle, data, columns, highlightColumn }: Result
                       key={col.key}
                       className={`px-4 py-3 whitespace-nowrap ${
                         isModel ? 'font-medium text-gray-900' : ''
-                      } ${isHighlight ? 'font-semibold' : 'text-gray-600'}`}
+                      } ${isHighlight ? 'font-semibold' : 'text-gray-600'} ${
+                        row.isBest ? 'font-bold text-indigo-700' : ''
+                      }`}
                     >
                       {isModel && row.isBest && (
                         <Trophy className="inline w-4 h-4 mr-2 text-amber-500" />
@@ -291,7 +287,6 @@ function ResultTable({ title, subtitle, data, columns, highlightColumn }: Result
 export default function Experiments() {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -313,25 +308,7 @@ export default function Experiments() {
       );
 
       // Stats animation
-      if (statsRef.current) {
-        gsap.fromTo(
-          statsRef.current.children,
-          { y: 40, opacity: 0, scale: 0.9 },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: 'back.out(1.4)',
-            scrollTrigger: {
-              trigger: statsRef.current,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        );
-      }
+
     }, sectionRef);
 
     return () => ctx.revert();
@@ -345,17 +322,14 @@ export default function Experiments() {
     { key: 'mmvet', label: 'MM-Vet↑' },
     { key: 'llavaw', label: 'LLaVA-W↑' },
     { key: 'mmb', label: 'MMB↑' },
-    { key: 'avg', label: 'Avg↑', width: 'w-20' },
   ];
 
   const vlaColumns = [
     { key: 'model', label: 'Model', width: 'w-1/4' },
-    { key: 'params', label: 'Params' },
-    { key: 'calvin', label: 'CALVIN↑' },
+    { key: 'widowx', label: 'SIMPLER WidowX↑' },
+    { key: 'google', label: 'SIMPLER Google↑' },
     { key: 'libero', label: 'LIBERO↑' },
-    { key: 'rlds', label: 'RLDS↑' },
-    { key: 'bridge', label: 'Bridge↑' },
-    { key: 'avg', label: 'Avg↑', width: 'w-20' },
+    { key: 'robocasa', label: 'RoboCasa-GR1↑' },
   ];
 
   return (
@@ -379,32 +353,8 @@ export default function Experiments() {
             全面实现 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">SOTA 性能</span>
           </h2>
           <p className="max-w-3xl mx-auto text-lg text-gray-600">
-            在空间智能、具身交互等多项权威评测中，PhysBrain 全面实现业界最优性能
+            在空间智能、具身交互等多项权威评测中，PhysBrain 1.0 全面实现业界最优性能
           </p>
-        </div>
-
-        {/* Stats Cards */}
-        <div
-          ref={statsRef}
-          className="grid grid-cols-2 gap-4 mb-12 md:grid-cols-4"
-        >
-          {[
-            { value: '73.0', label: '多模态 QA 平均分', icon: TrendingUp, color: 'from-blue-500 to-cyan-500' },
-            { value: '89.4', label: 'VLA 控制平均分', icon: Trophy, color: 'from-amber-500 to-orange-500' },
-            { value: '+35%', label: '性能提升', icon: TrendingUp, color: 'from-emerald-500 to-teal-500' },
-            { value: '6', label: '基准测试 SOTA', icon: Trophy, color: 'from-purple-500 to-pink-500' },
-          ].map((stat, index) => (
-            <div
-              key={index}
-              className="p-5 transition-shadow bg-white border border-gray-100 shadow-sm rounded-xl hover:shadow-md"
-            >
-              <div className={`w-10 h-10 bg-gradient-to-br ${stat.color} rounded-lg flex items-center justify-center mb-3`}>
-                <stat.icon className="w-5 h-5 text-white" />
-              </div>
-              <p className="text-2xl font-bold text-gray-900">{stat.value}</p>
-              <p className="mt-1 text-xs text-gray-500">{stat.label}</p>
-            </div>
-          ))}
         </div>
 
         {/* Results Tables */}
