@@ -21,6 +21,7 @@ const architectureModules = [
     color: 'from-indigo-500 to-blue-600',
     bgColor: 'bg-indigo-50',
     borderColor: 'border-indigo-200',
+    image: '/PhysBrain-arch.png',
   },
   {
     id: 'twinbrain',
