@@ -185,20 +185,20 @@ function ResultTable({ title, subtitle, data, columns, highlightColumn }: Result
   }, []);
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+    <div className="overflow-hidden bg-white border border-gray-200 shadow-sm rounded-2xl">
       {/* Header */}
       <div
-        className="flex items-center justify-between p-6 bg-gradient-to-r from-gray-50 to-white border-b border-gray-100 cursor-pointer hover:bg-gray-50 transition-colors"
+        className="flex items-center justify-between p-6 transition-colors border-b border-gray-100 cursor-pointer bg-gradient-to-r from-gray-50 to-white hover:bg-gray-50"
         onClick={() => setIsExpanded(!isExpanded)}
       >
         <div>
-          <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+          <h3 className="flex items-center gap-2 text-xl font-bold text-gray-900">
             <BarChart3 className="w-5 h-5 text-indigo-600" />
             {title}
           </h3>
-          <p className="text-sm text-gray-500 mt-1">{subtitle}</p>
+          <p className="mt-1 text-sm text-gray-500">{subtitle}</p>
         </div>
-        <button className="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+        <button className="p-2 transition-colors rounded-lg hover:bg-gray-100">
           {isExpanded ? (
             <ChevronUp className="w-5 h-5 text-gray-500" />
           ) : (
@@ -252,7 +252,7 @@ function ResultTable({ title, subtitle, data, columns, highlightColumn }: Result
                       } ${isHighlight ? 'font-semibold' : 'text-gray-600'}`}
                     >
                       {isModel && row.isBest && (
-                        <Trophy className="inline w-4 h-4 text-amber-500 mr-2" />
+                        <Trophy className="inline w-4 h-4 mr-2 text-amber-500" />
                       )}
                       {typeof value === 'number' ? (
                         <span
@@ -362,23 +362,23 @@ export default function Experiments() {
     <section
       id="experiments"
       ref={sectionRef}
-      className="relative py-24 bg-gray-50 overflow-hidden"
+      className="relative py-24 overflow-hidden bg-gray-50"
     >
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-t from-indigo-50/50 to-transparent rounded-full blur-3xl" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         {/* Section Title */}
-        <div ref={titleRef} className="text-center mb-12">
-          <span className="inline-block px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-medium rounded-full mb-4">
+        <div ref={titleRef} className="mb-12 text-center">
+          <span className="inline-block px-4 py-2 mb-4 text-sm font-medium rounded-full bg-emerald-50 text-emerald-700">
             实验结果
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            全面实现<span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">SOTA 性能</span>
+          <h2 className="mb-6 text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl">
+            全面实现 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">SOTA 性能</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="max-w-3xl mx-auto text-lg text-gray-600">
             在空间智能、具身交互等多项权威评测中，PhysBrain 全面实现业界最优性能
           </p>
         </div>
@@ -386,7 +386,7 @@ export default function Experiments() {
         {/* Stats Cards */}
         <div
           ref={statsRef}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
+          className="grid grid-cols-2 gap-4 mb-12 md:grid-cols-4"
         >
           {[
             { value: '73.0', label: '多模态 QA 平均分', icon: TrendingUp, color: 'from-blue-500 to-cyan-500' },
@@ -396,13 +396,13 @@ export default function Experiments() {
           ].map((stat, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+              className="p-5 transition-shadow bg-white border border-gray-100 shadow-sm rounded-xl hover:shadow-md"
             >
               <div className={`w-10 h-10 bg-gradient-to-br ${stat.color} rounded-lg flex items-center justify-center mb-3`}>
                 <stat.icon className="w-5 h-5 text-white" />
               </div>
               <p className="text-2xl font-bold text-gray-900">{stat.value}</p>
-              <p className="text-xs text-gray-500 mt-1">{stat.label}</p>
+              <p className="mt-1 text-xs text-gray-500">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -427,26 +427,26 @@ export default function Experiments() {
         </div>
 
         {/* Key Findings */}
-        <div className="mt-12 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 text-white">
-          <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+        <div className="p-8 mt-12 text-white bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl">
+          <h3 className="flex items-center gap-2 mb-4 text-xl font-bold">
             <Trophy className="w-6 h-6" />
             核心发现
           </h3>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid gap-6 md:grid-cols-3">
             <div>
-              <h4 className="font-semibold mb-2">数据效率突破</h4>
+              <h4 className="mb-2 font-semibold">数据效率突破</h4>
               <p className="text-sm text-white/80">
                 依托大规模开源人类视频实现零成本"物理常识"注入，摆脱对昂贵闭环机器人数据的高度依赖
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-2">范式迁移成功</h4>
+              <h4 className="mb-2 font-semibold">范式迁移成功</h4>
               <p className="text-sm text-white/80">
                 完美契合从动作模仿到物理常识的范式迁移需求，以极致数据效率登顶多项基准测试
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-2">通专融合</h4>
+              <h4 className="mb-2 font-semibold">通专融合</h4>
               <p className="text-sm text-white/80">
                 TwinBrainVLA 架构成功解决灾难性遗忘难题，在保留通用能力的同时高效完成具身专项训练
               </p>

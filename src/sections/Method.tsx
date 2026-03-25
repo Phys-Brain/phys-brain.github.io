@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 const methodCards = [
   {
     icon: Film,
-    title: '大规模视频语料库',
+    title: 'Ego → Embodiment 数据引擎',
     description:
       '将三千小时人类视频从真实三维环境中的空间关系、动作可行性以及多步逻辑推理等多维度完成精准的数据标注，生产出规模化、高可扩展的具身训练语料。',
     image: '/card-video-corpus.jpg',
@@ -17,38 +17,11 @@ const methodCards = [
   },
   {
     icon: Layers,
-    title: '多模态学习',
+    title: '基座模型 Physical Tuning',
     description:
-      '将高质量语料注入多模态大模型，成功激发出模型的"类人"物理智能，推动模型从"模仿动作"升级为"理解物理"。',
+      '深度挖掘视频背后蕴含的物理规律与常识逻辑，将高质量语料注入多模态大模型，成功激发出模型的"类人"物理智能。',
     image: '/card-multimodal.jpg',
     color: 'from-purple-500 to-pink-600',
-    size: 'medium',
-  },
-  {
-    icon: Atom,
-    title: '物理常识',
-    description:
-      '深度挖掘视频背后蕴含的物理规律与常识逻辑，让具身智能真正具备理解物理世界、自主应对复杂场景的能力。',
-    image: '/card-physics.jpg',
-    color: 'from-indigo-500 to-purple-600',
-    size: 'medium',
-  },
-  {
-    icon: Cog,
-    title: '数据引擎',
-    description:
-      '构建了全球首个可规模化将海量人类视频转化为多模态大模型训练数据的物理智能数据引擎，突破数据获取瓶颈。',
-    image: '/card-data-engine.jpg',
-    color: 'from-amber-500 to-orange-600',
-    size: 'medium',
-  },
-  {
-    icon: Box,
-    title: '空间智能',
-    description:
-      '在空间智能、具身交互等多项权威评测中，全面实现 SOTA（业界最优）性能，彰显了具身通用智能的核心竞争力。',
-    image: '/card-spatial.jpg',
-    color: 'from-emerald-500 to-teal-600',
     size: 'medium',
   },
   {
@@ -56,10 +29,46 @@ const methodCards = [
     title: 'VLA 集成',
     description:
       '基于领先的 PhysBrain 基座模型，攻坚机器人控制核心技术，研发 Vision-Language-Action（VLA）机器人控制模型。',
-    image: '/card-vla.jpg',
+    image: '/card-spatial.jpg',
     color: 'from-rose-500 to-red-600',
     size: 'large',
   },
+  // {
+  //   icon: Atom,
+  //   title: '物理常识',
+  //   description:
+  //     '深度挖掘视频背后蕴含的物理规律与常识逻辑，让具身智能真正具备理解物理世界、自主应对复杂场景的能力。',
+  //   image: '/card-physics.jpg',
+  //   color: 'from-indigo-500 to-purple-600',
+  //   size: 'medium',
+  // },
+  // {
+  //   icon: Cog,
+  //   title: '数据引擎',
+  //   description:
+  //     '构建了全球首个可规模化将海量人类视频转化为多模态大模型训练数据的物理智能数据引擎，突破数据获取瓶颈。',
+  //   image: '/card-data-engine.jpg',
+  //   color: 'from-amber-500 to-orange-600',
+  //   size: 'medium',
+  // },
+  // {
+  //   icon: Box,
+  //   title: '空间智能',
+  //   description:
+  //     '在空间智能、具身交互等多项权威评测中，全面实现 SOTA（业界最优）性能，彰显了具身通用智能的核心竞争力。',
+  //   image: '/card-spatial.jpg',
+  //   color: 'from-emerald-500 to-teal-600',
+  //   size: 'medium',
+  // },
+  // {
+  //   icon: GitMerge,
+  //   title: 'VLA 集成',
+  //   description:
+  //     '基于领先的 PhysBrain 基座模型，攻坚机器人控制核心技术，研发 Vision-Language-Action（VLA）机器人控制模型。',
+  //   image: '/card-vla.jpg',
+  //   color: 'from-rose-500 to-red-600',
+  //   size: 'large',
+  // },
 ];
 
 export default function Method() {
@@ -122,7 +131,7 @@ export default function Method() {
     <section
       id="method"
       ref={sectionRef}
-      className="relative py-24 bg-gray-50 overflow-hidden"
+      className="relative py-24 overflow-hidden bg-gray-50"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
@@ -135,16 +144,16 @@ export default function Method() {
         />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         {/* Section Title */}
-        <div ref={titleRef} className="text-center mb-16">
-          <span className="inline-block px-4 py-2 bg-purple-50 text-purple-700 text-sm font-medium rounded-full mb-4">
+        <div ref={titleRef} className="mb-16 text-center">
+          <span className="inline-block px-4 py-2 mb-4 text-sm font-medium text-purple-700 rounded-full bg-purple-50">
             核心技术
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="mb-6 text-3xl font-bold text-gray-900 sm:text-4xl lg:text-5xl">
             我们的<span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600">方法</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="max-w-3xl mx-auto text-lg text-gray-600">
             三大核心技术深度融合，从第一性原理出发缓解传统 VLA 训练导致的通用能力衰退难题
           </p>
         </div>
@@ -152,7 +161,7 @@ export default function Method() {
         {/* Bento Grid */}
         <div
           ref={gridRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
           style={{ perspective: '1000px' }}
         >
           {methodCards.map((card, index) => (
@@ -168,7 +177,7 @@ export default function Method() {
                 <img
                   src={card.image}
                   alt={card.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                 
@@ -182,10 +191,10 @@ export default function Method() {
 
               {/* Content */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors">
+                <h3 className="mb-3 text-xl font-bold text-gray-900 transition-colors group-hover:text-indigo-600">
                   {card.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-sm leading-relaxed text-gray-600">
                   {card.description}
                 </p>
               </div>
@@ -196,7 +205,7 @@ export default function Method() {
               />
 
               {/* Border Glow */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+              <div className="absolute inset-0 transition-opacity duration-500 opacity-0 pointer-events-none rounded-2xl group-hover:opacity-100">
                 <div
                   className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${card.color} opacity-20 blur-sm`}
                 />
@@ -207,7 +216,7 @@ export default function Method() {
 
         {/* Bottom Summary */}
         <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-4 bg-white rounded-full px-8 py-4 shadow-lg border border-gray-100">
+          <div className="inline-flex items-center gap-4 px-8 py-4 bg-white border border-gray-100 rounded-full shadow-lg">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
               <span className="text-sm text-gray-600">数据引擎</span>
