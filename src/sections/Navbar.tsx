@@ -117,7 +117,9 @@ export default function Navbar() {
               GitHub
             </a>
             <a
-              href="#"
+              href="https://arxiv.org/abs/2512.16793"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 px-5 py-2 text-sm font-medium text-white bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full hover:shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 hover:-translate-y-0.5"
             >
               <FileText className="w-4 h-4" />
@@ -173,7 +175,9 @@ export default function Navbar() {
               GitHub
             </a>
             <a
-              href="#"
+              href="https://arxiv.org/abs/2512.16793"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-3 px-4 py-3 mt-2 text-white rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600"
             >
               <FileText className="w-5 h-5" />

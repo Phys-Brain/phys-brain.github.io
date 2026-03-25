@@ -226,7 +226,9 @@ export default function Hero() {
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a
-                href="#"
+                href="https://arxiv.org/abs/2512.16793"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 px-8 py-4 font-semibold text-gray-700 transition-all duration-300 bg-white border-2 border-gray-200 rounded-full hover:border-indigo-300 hover:bg-indigo-50"
               >
                 <FileText className="w-5 h-5" />

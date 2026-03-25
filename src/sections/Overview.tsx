@@ -210,19 +210,6 @@ export default function Overview() {
                 />
               </div>
             </div>
-
-            {/* Floating Stats */}
-            <div className="absolute -bottom-6 -right-6 bg-white rounded-xl p-4 shadow-xl border border-gray-100">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">↑</span>
-                </div>
-                <div>
-                  <p className="text-xs text-gray-500">性能提升</p>
-                  <p className="text-lg font-bold text-gray-800">+35%</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 

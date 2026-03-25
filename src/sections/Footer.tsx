@@ -17,7 +17,7 @@ const resourceLinks = [
   { name: '模型下载', href: 'https://huggingface.co/Phys-Brain', icon: Brain },
   { name: '数据集', href: '#', icon: Database },
   { name: 'GitHub', href: 'https://github.com/ZGC-EmbodyAI', icon: Github },
-  { name: '论文 PDF', href: '#', icon: FileText },
+  { name: '论文 PDF', href: 'https://arxiv.org/abs/2512.16793', icon: FileText },
 ];
 
 const contactLinks = [
