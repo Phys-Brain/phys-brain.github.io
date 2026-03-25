@@ -130,7 +130,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative min-h-screen flex items-center overflow-hidden bg-white"
+      className="relative flex items-center min-h-screen overflow-hidden bg-white"
     >
       {/* Background Grid Pattern */}
       <div className="absolute inset-0 opacity-[0.03]">
@@ -147,24 +147,24 @@ export default function Hero() {
       </div>
 
       {/* Gradient Orbs */}
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-gradient-to-br from-cyan-300/20 to-blue-400/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-gradient-to-br from-purple-300/20 to-pink-400/20 rounded-full blur-3xl" />
+      <div className="absolute rounded-full top-1/4 -left-32 w-96 h-96 bg-gradient-to-br from-cyan-300/20 to-blue-400/20 blur-3xl" />
+      <div className="absolute rounded-full bottom-1/4 -right-32 w-96 h-96 bg-gradient-to-br from-purple-300/20 to-pink-400/20 blur-3xl" />
 
       {/* Decorative Elements */}
       <div ref={decorRef} className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-32 left-20 w-3 h-3 bg-indigo-500 rounded-full" />
-        <div className="absolute top-48 right-32 w-2 h-2 bg-cyan-500 rounded-full" />
-        <div className="absolute bottom-40 left-1/4 w-2 h-2 bg-purple-500 rounded-full" />
-        <div className="absolute top-1/3 right-1/4 w-4 h-4 border-2 border-indigo-300 rounded-full" />
-        <div className="absolute bottom-1/3 right-20 w-3 h-3 border-2 border-cyan-300 rotate-45" />
+        <div className="absolute w-3 h-3 bg-indigo-500 rounded-full top-32 left-20" />
+        <div className="absolute w-2 h-2 rounded-full top-48 right-32 bg-cyan-500" />
+        <div className="absolute w-2 h-2 bg-purple-500 rounded-full bottom-40 left-1/4" />
+        <div className="absolute w-4 h-4 border-2 border-indigo-300 rounded-full top-1/3 right-1/4" />
+        <div className="absolute w-3 h-3 rotate-45 border-2 bottom-1/3 right-20 border-cyan-300" />
       </div>
 
-      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 pt-32">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+      <div className="relative w-full px-4 py-20 pt-32 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-8">
           {/* Left Content */}
           <div className="relative z-10 text-center lg:text-left">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-full border border-indigo-100 mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 border border-indigo-100 rounded-full bg-gradient-to-r from-indigo-50 to-purple-50">
               <Sparkles className="w-4 h-4 text-indigo-600" />
               <span className="text-sm font-medium text-indigo-700">
                 PhysBrain 1.0 正式发布
@@ -174,21 +174,21 @@ export default function Hero() {
             {/* Title */}
             <h1
               ref={titleRef}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6"
+              className="mb-6 text-4xl font-bold leading-tight text-gray-900 sm:text-5xl lg:text-6xl"
               style={{ perspective: '1000px' }}
             >
               <span className="block overflow-hidden">
                 {titleWords.map((char, i) => (
                   <span
                     key={i}
-                    className="word inline-block"
+                    className="inline-block word"
                     style={{ transformStyle: 'preserve-3d' }}
                   >
                     {char === '，' ? <span className="inline-block">，</span> : char}
                   </span>
                 ))}
               </span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 mt-2">
+              <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600">
                 引领具身智能新范式
               </span>
             </h1>
@@ -196,40 +196,38 @@ export default function Hero() {
             {/* Subtitle */}
             <p
               ref={subtitleRef}
-              className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed"
+              className="max-w-2xl mx-auto mb-8 text-lg leading-relaxed text-gray-600 sm:text-xl lg:mx-0"
             >
               从动作模仿到物理常识的跨越，构建全球首个可规模化将海量人类视频
               转化为多模态大模型训练数据的物理智能数据引擎
             </p>
 
             {/* Author Info */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-8 text-sm text-gray-500">
+            <div className="flex flex-wrap items-center justify-center gap-4 mb-8 text-sm text-gray-500 lg:justify-start">
               <span className="flex items-center gap-2">
                 <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full" />
-                研究团队
+                北京中关村学院 · 通用具身基础模型项目组
               </span>
               <span className="hidden sm:inline">·</span>
-              <span>具身智能实验室</span>
-              <span className="hidden sm:inline">·</span>
-              <span>2024年12月</span>
+              <span>2026 年 3 月</span>
             </div>
 
             {/* CTA Buttons */}
             <div
               ref={buttonsRef}
-              className="flex flex-wrap items-center justify-center lg:justify-start gap-4"
+              className="flex flex-wrap items-center justify-center gap-4 lg:justify-start"
             >
               <a
                 href="#overview"
-                className="group flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-full hover:shadow-xl hover:shadow-indigo-500/30 transition-all duration-300 hover:-translate-y-1"
+                className="flex items-center gap-2 px-8 py-4 font-semibold text-white transition-all duration-300 rounded-full group bg-gradient-to-r from-indigo-600 to-purple-600 hover:shadow-xl hover:shadow-indigo-500/30 hover:-translate-y-1"
               >
                 <Play className="w-5 h-5" />
                 观看演示
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a
                 href="#"
-                className="flex items-center gap-2 px-8 py-4 bg-white text-gray-700 font-semibold rounded-full border-2 border-gray-200 hover:border-indigo-300 hover:bg-indigo-50 transition-all duration-300"
+                className="flex items-center gap-2 px-8 py-4 font-semibold text-gray-700 transition-all duration-300 bg-white border-2 border-gray-200 rounded-full hover:border-indigo-300 hover:bg-indigo-50"
               >
                 <FileText className="w-5 h-5" />
                 阅读论文
@@ -237,30 +235,30 @@ export default function Hero() {
             </div>
 
             {/* Quick Links */}
-            <div className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm">
+            <div className="flex flex-wrap items-center justify-center gap-6 mt-10 text-sm lg:justify-start">
               <a
                 href="#"
-                className="flex items-center gap-2 text-gray-600 hover:text-indigo-600 transition-colors"
+                className="flex items-center gap-2 text-gray-600 transition-colors hover:text-indigo-600"
               >
-                <span className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-lg">
+                <span className="flex items-center justify-center w-8 h-8 bg-gray-100 rounded-lg">
                   🤖
                 </span>
                 模型下载
               </a>
               <a
                 href="#"
-                className="flex items-center gap-2 text-gray-600 hover:text-indigo-600 transition-colors"
+                className="flex items-center gap-2 text-gray-600 transition-colors hover:text-indigo-600"
               >
-                <span className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-lg">
+                <span className="flex items-center justify-center w-8 h-8 bg-gray-100 rounded-lg">
                   📊
                 </span>
                 数据集
               </a>
               <a
                 href="#"
-                className="flex items-center gap-2 text-gray-600 hover:text-indigo-600 transition-colors"
+                className="flex items-center gap-2 text-gray-600 transition-colors hover:text-indigo-600"
               >
-                <span className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-lg">
+                <span className="flex items-center justify-center w-8 h-8 bg-gray-100 rounded-lg">
                   💻
                 </span>
                 代码仓库
@@ -278,14 +276,14 @@ export default function Hero() {
               <img
                 src="/hero-visual.png"
                 alt="PhysBrain Visual"
-                className="w-full h-full object-contain drop-shadow-2xl"
+                className="object-contain w-full h-full drop-shadow-2xl"
               />
 
               {/* Floating Cards */}
-              <div className="absolute -top-4 -left-4 bg-white/90 backdrop-blur-sm rounded-xl p-3 shadow-lg border border-gray-100 animate-pulse">
+              <div className="absolute p-3 border border-gray-100 shadow-lg -top-4 -left-4 bg-white/90 backdrop-blur-sm rounded-xl animate-pulse">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-emerald-500 rounded-lg flex items-center justify-center">
-                    <span className="text-white text-xs font-bold">SOTA</span>
+                  <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-green-400 to-emerald-500">
+                    <span className="text-xs font-bold text-white">SOTA</span>
                   </div>
                   <div>
                     <p className="text-xs text-gray-500">空间智能</p>
@@ -294,10 +292,10 @@ export default function Hero() {
                 </div>
               </div>
 
-              <div className="absolute -bottom-4 -right-4 bg-white/90 backdrop-blur-sm rounded-xl p-3 shadow-lg border border-gray-100">
+              <div className="absolute p-3 border border-gray-100 shadow-lg -bottom-4 -right-4 bg-white/90 backdrop-blur-sm rounded-xl">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-lg flex items-center justify-center">
-                    <span className="text-white text-xs font-bold">3K+</span>
+                  <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-blue-400 to-indigo-500">
+                    <span className="text-xs font-bold text-white">3K+</span>
                   </div>
                   <div>
                     <p className="text-xs text-gray-500">训练视频</p>
@@ -306,10 +304,10 @@ export default function Hero() {
                 </div>
               </div>
 
-              <div className="absolute top-1/2 -right-8 bg-white/90 backdrop-blur-sm rounded-xl p-3 shadow-lg border border-gray-100">
+              <div className="absolute p-3 border border-gray-100 shadow-lg top-1/2 -right-8 bg-white/90 backdrop-blur-sm rounded-xl">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-500 rounded-lg flex items-center justify-center">
-                    <span className="text-white text-xs font-bold">VLA</span>
+                  <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-purple-400 to-pink-500">
+                    <span className="text-xs font-bold text-white">VLA</span>
                   </div>
                   <div>
                     <p className="text-xs text-gray-500">控制模型</p>

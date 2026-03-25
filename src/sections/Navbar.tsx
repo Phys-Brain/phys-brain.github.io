@@ -78,10 +78,7 @@ export default function Navbar() {
             }}
             className="flex items-center gap-2 group"
           >
-            <div className="relative w-8 h-8 flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg overflow-hidden">
-              <Brain className="w-5 h-5 text-white relative z-10" />
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
+            <img src="/physbrain-logo2.png" alt="PhysBrain" className="object-contain w-16 h-16" />
             <span className={`font-bold text-lg transition-colors duration-300 ${
               isScrolled ? 'text-gray-900' : 'text-gray-900'
             }`}>
@@ -90,7 +87,7 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Navigation */}
-          <div ref={linksRef} className="hidden md:flex items-center gap-1">
+          <div ref={linksRef} className="items-center hidden gap-1 md:flex">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -109,12 +106,12 @@ export default function Navbar() {
           </div>
 
           {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="items-center hidden gap-3 md:flex">
             <a
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600 transition-colors duration-300"
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 transition-colors duration-300 hover:text-indigo-600"
             >
               <Github className="w-4 h-4" />
               GitHub
@@ -131,7 +128,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300"
+            className="p-2 transition-colors duration-300 rounded-lg md:hidden hover:bg-gray-100"
           >
             {isMobileMenuOpen ? (
               <X className="w-6 h-6 text-gray-700" />
@@ -159,7 +156,7 @@ export default function Navbar() {
                 e.preventDefault();
                 scrollToSection(link.href);
               }}
-              className="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-all duration-300"
+              className="flex items-center gap-3 px-4 py-3 text-gray-700 transition-all duration-300 rounded-xl hover:bg-indigo-50 hover:text-indigo-600"
             >
               <link.icon className="w-5 h-5" />
               {link.name}
@@ -170,14 +167,14 @@ export default function Navbar() {
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition-all duration-300"
+              className="flex items-center gap-3 px-4 py-3 text-gray-700 transition-all duration-300 rounded-xl hover:bg-indigo-50 hover:text-indigo-600"
             >
               <Github className="w-5 h-5" />
               GitHub
             </a>
             <a
               href="#"
-              className="flex items-center gap-3 px-4 py-3 rounded-xl text-white bg-gradient-to-r from-indigo-600 to-purple-600 mt-2"
+              className="flex items-center gap-3 px-4 py-3 mt-2 text-white rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600"
             >
               <FileText className="w-5 h-5" />
               阅读论文

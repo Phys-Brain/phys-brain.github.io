@@ -79,9 +79,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <a href="#hero" className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center">
-                <Brain className="w-7 h-7 text-white" />
-              </div>
+              <img src="/physbrain-logo.png" alt="PhysBrain" className="w-12 h-12 object-contain" />
               <div>
                 <span className="text-xl font-bold">PhysBrain</span>
                 <span className="block text-xs text-gray-400">1.0</span>
