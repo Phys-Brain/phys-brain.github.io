@@ -82,7 +82,7 @@ export default function Navbar() {
             <span className={`font-bold text-lg transition-colors duration-300 ${
               isScrolled ? 'text-gray-900' : 'text-gray-900'
             }`}>
-              PhysBrain
+              PhysBrain 1.0
             </span>
           </a>
 
