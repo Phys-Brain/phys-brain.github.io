@@ -8,69 +8,43 @@ gsap.registerPlugin(ScrollTrigger);
 // Multimodal QA Results Data
 const qaResults = [
   {
-    model: 'PhysBrain-7B',
-    params: '7B',
-    sqa: 73.8,
-    pope: 89.2,
-    mmvet: 48.5,
-    llavaw: 72.1,
-    mmb: 68.9,
-    avg: 70.5,
-    isBest: true,
+    model: 'PhysBrain 8B (Ours)',
+    erqa: 0.455, physbench: 0.5024, mme: 2431.07, mmmu: 0.5522, ocrbench: 0.857, realworldqa: 0.6876, textvqa: 0.8329,
+    isBest: true, isOurs: true,
   },
   {
-    model: 'PhysBrain-13B',
-    params: '13B',
-    sqa: 76.2,
-    pope: 90.5,
-    mmvet: 52.3,
-    llavaw: 74.8,
-    mmb: 71.4,
-    avg: 73.0,
-    isBest: true,
+    model: 'PhysBrain 4B (Ours)',
+    erqa: 0.410, physbench: 0.4810, mme: 2385.07, mmmu: 0.4989, ocrbench: 0.830, realworldqa: 0.7268, textvqa: 0.8114,
+    isBest: false, isOurs: true,
   },
   {
-    model: 'LLaVA-1.5-7B',
-    params: '7B',
-    sqa: 66.8,
-    pope: 85.9,
-    mmvet: 35.4,
-    llavaw: 62.0,
-    mmb: 64.3,
-    avg: 62.9,
+    model: 'Qwen3-VL-8B (Base)',
+    erqa: 0.430, physbench: 0.4851, mme: 2373.27, mmmu: 0.5322, ocrbench: 0.844, realworldqa: 0.6941, textvqa: 0.8211,
     isBest: false,
   },
   {
-    model: 'LLaVA-1.5-13B',
-    params: '13B',
-    sqa: 71.6,
-    pope: 87.3,
-    mmvet: 41.5,
-    llavaw: 68.2,
-    mmb: 67.0,
-    avg: 67.1,
+    model: 'Qwen3-VL-4B (Base)',
+    erqa: 0.3975, physbench: 0.4574, mme: 2297.47, mmmu: 0.4844, ocrbench: 0.828, realworldqa: 0.7046, textvqa: 0.8013,
     isBest: false,
   },
   {
-    model: 'Qwen-VL-7B',
-    params: '7B',
-    sqa: 68.2,
-    pope: 84.5,
-    mmvet: 38.2,
-    llavaw: 65.4,
-    mmb: 63.8,
-    avg: 64.0,
+    model: 'RynnBrain-8B',
+    erqa: 0.4325, physbench: 0.4656, mme: 2456.54, mmmu: 0.5611, ocrbench: 0.833, realworldqa: 0.5320, textvqa: 0.8196,
     isBest: false,
   },
   {
-    model: 'InternVL-7B',
-    params: '7B',
-    sqa: 70.1,
-    pope: 86.2,
-    mmvet: 42.1,
-    llavaw: 67.3,
-    mmb: 65.9,
-    avg: 66.3,
+    model: 'RoboBrain2.5-8B',
+    erqa: 0.4325, physbench: 0.4923, mme: 2410.04, mmmu: 0.5456, ocrbench: 0.844, realworldqa: 0.7007, textvqa: 0.8079,
+    isBest: false,
+  },
+  {
+    model: 'VST-7B-RL',
+    erqa: 0.4025, physbench: 0.4641, mme: 2036.62, mmmu: 0.4789, ocrbench: 0.827, realworldqa: 0.6732, textvqa: 0.8193,
+    isBest: false,
+  },
+  {
+    model: 'MiMo-VL-7B-RL',
+    erqa: 0.3850, physbench: 0.3940, mme: 2413.61, mmmu: 0.4100, ocrbench: 0.814, realworldqa: 0.2980, textvqa: 0.7637,
     isBest: false,
   },
 ];
@@ -143,7 +117,7 @@ interface ResultTableProps {
   title: string;
   subtitle: string;
   data: TableRow[];
-  columns: { key: string; label: string; width?: string }[];
+  columns: { key: string; label: string; width?: string; scale?: number }[];
   highlightColumn?: string;
 }
 
@@ -234,7 +208,8 @@ function ResultTable({ title, subtitle, data, columns, highlightColumn }: Result
                 style={{ transformStyle: 'preserve-3d' }}
               >
                 {columns.map((col) => {
-                  const value = row[col.key];
+                  const raw = row[col.key];
+                  const value = typeof raw === 'number' ? raw * (col.scale ?? 1) : raw;
                   const isHighlight = col.key === highlightColumn;
                   const isModel = col.key === 'model';
 
@@ -244,7 +219,7 @@ function ResultTable({ title, subtitle, data, columns, highlightColumn }: Result
                       className={`px-4 py-3 whitespace-nowrap ${
                         isModel ? 'font-medium text-gray-900' : ''
                       } ${isHighlight ? 'font-semibold' : 'text-gray-600'} ${
-                        row.isBest ? 'font-bold text-indigo-700' : ''
+                        row.isOurs ? 'font-bold text-indigo-700' : ''
                       }`}
                     >
                       {isModel && row.isBest && (
@@ -252,14 +227,8 @@ function ResultTable({ title, subtitle, data, columns, highlightColumn }: Result
                       )}
                       {typeof value === 'number' ? (
                         <span
-                          className={`${
-                            isHighlight
-                              ? 'text-indigo-600 font-bold'
-                              : ''
-                          } ${
-                            row.isBest && isHighlight
-                              ? 'text-amber-600'
-                              : ''
+                          className={`${isHighlight ? 'text-indigo-600 font-bold' : ''} ${
+                            row.isBest && isHighlight ? 'text-amber-600' : ''
                           }`}
                         >
                           {value.toFixed(1)}
@@ -316,12 +285,13 @@ export default function Experiments() {
 
   const qaColumns = [
     { key: 'model', label: 'Model', width: 'w-1/4' },
-    { key: 'params', label: 'Params' },
-    { key: 'sqa', label: 'SQA↑' },
-    { key: 'pope', label: 'POPE↑' },
-    { key: 'mmvet', label: 'MM-Vet↑' },
-    { key: 'llavaw', label: 'LLaVA-W↑' },
-    { key: 'mmb', label: 'MMB↑' },
+    { key: 'erqa', label: 'ERQA↑', scale: 100 },
+    { key: 'physbench', label: 'PhysBench↑', scale: 100 },
+    { key: 'mme', label: 'MME↑' },
+    { key: 'mmmu', label: 'MMMU↑', scale: 100 },
+    { key: 'ocrbench', label: 'OCRBench↑', scale: 100 },
+    { key: 'realworldqa', label: 'RealWorldQA↑', scale: 100 },
+    { key: 'textvqa', label: 'TextVQA↑', scale: 100 },
   ];
 
   const vlaColumns = [
