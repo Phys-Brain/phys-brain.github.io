@@ -200,7 +200,7 @@ export default function Footer() {
         <div className="py-6 border-t border-gray-800">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-gray-500">
-              © 2024 PhysBrain Team. All rights reserved.
+              © 2026 PhysBrain Team. All rights reserved.
             </p>
             <p className="text-sm text-gray-500 flex items-center gap-1">
               Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> for Embodied AI
