@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Database, Brain, Cpu, Lightbulb, Target, Zap } from 'lucide-react';
@@ -49,6 +49,7 @@ export default function Overview() {
   const titleRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
+  const [activeVideo, setActiveVideo] = useState<'real' | 'sim'>('real');
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -176,40 +177,52 @@ export default function Overview() {
             </div>
           </div>
 
-          {/* Right: Video Placeholder */}
+          {/* Right: Demo Video */}
           <div className="relative">
-            <div className="relative aspect-video bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden shadow-2xl">
-              {/* Video Placeholder Content */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 cursor-pointer hover:bg-white/20 transition-colors group">
-                    <div className="w-0 h-0 border-t-8 border-t-transparent border-l-12 border-l-white border-b-8 border-b-transparent ml-1 group-hover:scale-110 transition-transform" />
-                  </div>
-                  <p className="text-white/80 text-sm">观看 PhysBrain 1.0 演示视频</p>
-                </div>
-              </div>
-
-              {/* Decorative Elements */}
-              <div className="absolute top-4 left-4 flex gap-2">
-                <div className="w-3 h-3 bg-red-500 rounded-full" />
-                <div className="w-3 h-3 bg-yellow-500 rounded-full" />
-                <div className="w-3 h-3 bg-green-500 rounded-full" />
-              </div>
-
-              {/* Grid Overlay */}
-              <div className="absolute inset-0 opacity-10">
-                <div
-                  className="w-full h-full"
-                  style={{
-                    backgroundImage: `
-                      linear-gradient(to right, #fff 1px, transparent 1px),
-                      linear-gradient(to bottom, #fff 1px, transparent 1px)
-                    `,
-                    backgroundSize: '40px 40px',
-                  }}
-                />
-              </div>
+            {/* Tab Switcher */}
+            <div className="flex gap-2 mb-4">
+              <button
+                onClick={() => setActiveVideo('real')}
+                className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  activeVideo === 'real'
+                    ? 'bg-indigo-600 text-white shadow-md'
+                    : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
+                }`}
+              >
+                <span className="w-2 h-2 rounded-full bg-current" />
+                真机演示
+              </button>
+              <button
+                onClick={() => setActiveVideo('sim')}
+                className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  activeVideo === 'sim'
+                    ? 'bg-purple-600 text-white shadow-md'
+                    : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
+                }`}
+              >
+                <span className="w-2 h-2 rounded-full bg-current" />
+                仿真演示
+              </button>
             </div>
+
+            {/* Video Player */}
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-900">
+              <video
+                key={activeVideo}
+                className="w-full h-full object-cover"
+                src={activeVideo === 'real' ? '/franka-robot.mp4' : '/SimplerEnv-demo.mp4'}
+                autoPlay
+                loop
+                muted
+                playsInline
+                onCanPlay={(e) => {
+                  (e.currentTarget as HTMLVideoElement).playbackRate = activeVideo === 'sim' ? 1.25 : 1;
+                }}
+              />
+            </div>
+            <p className="text-center text-sm text-gray-500 mt-3">
+              {activeVideo === 'real' ? 'Franka 机械臂真机演示' : 'SimplerEnv 仿真环境演示'}
+            </p>
           </div>
         </div>
 

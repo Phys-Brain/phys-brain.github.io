@@ -14,10 +14,12 @@ import {
 gsap.registerPlugin(ScrollTrigger);
 
 const resourceLinks = [
-  { name: '模型下载', href: 'https://huggingface.co/Phys-Brain', icon: Brain },
-  { name: '数据集', href: '#', icon: Database },
+  { name: '模型下载', href: 'https://huggingface.co/collections/Phys-Brain/physbrain-10-vla', icon: Brain },
+  // { name: '数据集', href: '#', icon: Database }, // 暂未开源
   { name: 'GitHub', href: 'https://github.com/ZGC-EmbodyAI', icon: Github },
-  { name: '论文 PDF', href: 'https://arxiv.org/abs/2512.16793', icon: FileText },
+  { name: 'PhysBrain 论文', href: 'https://arxiv.org/abs/2512.16793', icon: FileText },
+  { name: 'TwinBrainVLA 论文', href: 'https://arxiv.org/abs/2601.14133', icon: FileText },
+  { name: 'LangForce 论文', href: 'https://arxiv.org/abs/2601.15197', icon: FileText },
 ];
 
 const contactLinks = [

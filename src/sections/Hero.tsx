@@ -225,21 +225,44 @@ export default function Hero() {
                 观看演示
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
-              <a
-                href="https://arxiv.org/abs/2512.16793"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 px-8 py-4 font-semibold text-gray-700 transition-all duration-300 bg-white border-2 border-gray-200 rounded-full hover:border-indigo-300 hover:bg-indigo-50"
-              >
-                <FileText className="w-5 h-5" />
-                阅读论文
-              </a>
+              <div className="flex flex-col gap-2">
+                <span className="flex items-center gap-1 text-xs font-medium tracking-wide text-gray-400 uppercase">
+                  <FileText className="w-3 h-3" />
+                  论文
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  <a
+                    href="https://arxiv.org/abs/2512.16793"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border-2 border-gray-200 rounded-full transition-all hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700"
+                  >
+                    PhysBrain
+                  </a>
+                  <a
+                    href="https://arxiv.org/abs/2601.14133"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border-2 border-gray-200 rounded-full transition-all hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700"
+                  >
+                    TwinBrainVLA
+                  </a>
+                  <a
+                    href="https://arxiv.org/abs/2601.15197"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border-2 border-gray-200 rounded-full transition-all hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700"
+                  >
+                    LangForce
+                  </a>
+                </div>
+              </div>
             </div>
 
             {/* Quick Links */}
             <div className="flex flex-wrap items-center justify-center gap-6 mt-10 text-sm lg:justify-start">
               <a
-                href="https://huggingface.co/Phys-Brain"
+                href="https://huggingface.co/collections/Phys-Brain/physbrain-10-vla"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-gray-600 transition-colors hover:text-indigo-600"
@@ -249,7 +272,8 @@ export default function Hero() {
                 </span>
                 模型下载
               </a>
-              <a
+              {/* 数据集入口暂未开源，隐藏 */}
+              {/* <a
                 href="#"
                 className="flex items-center gap-2 text-gray-600 transition-colors hover:text-indigo-600"
               >
@@ -257,9 +281,11 @@ export default function Hero() {
                   📊
                 </span>
                 数据集
-              </a>
+              </a> */}
               <a
-                href="#"
+                href="https://github.com/Phys-Brain/PhysBrain-VLA"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 text-gray-600 transition-colors hover:text-indigo-600"
               >
                 <span className="flex items-center justify-center w-8 h-8 bg-gray-100 rounded-lg">
